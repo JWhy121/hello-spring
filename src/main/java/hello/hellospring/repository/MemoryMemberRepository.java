@@ -9,8 +9,6 @@ public class MemoryMemberRepository implements MemberRepository {
     private static Map<Long, Member> store = new HashMap<>();
     private static Long sequence = 0L; //키값을 생성해 주는 변수
 
-
-
     @Override
     public Member save(Member member) {
         member.setId(++sequence);
@@ -34,4 +32,9 @@ public class MemoryMemberRepository implements MemberRepository {
     public List<Member> findAll() {
         return new ArrayList<>(store.values());
     }
+
+    public void cleaeStore(){
+        store.clear();
+    }
+
 }
